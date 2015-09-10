@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'home#index'
   post '/' => 'home#get_summoner'
 
+  get '/champions' => 'home#champions' # for seeding Champion db
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

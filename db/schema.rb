@@ -16,7 +16,8 @@ ActiveRecord::Schema.define(version: 20150910031454) do
   create_table "champions", force: :cascade do |t|
     t.integer  "lol_id"
     t.string   "name"
-    t.string   "picture"
+    t.string   "title"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

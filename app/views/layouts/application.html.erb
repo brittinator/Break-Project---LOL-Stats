@@ -7,10 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
 
-<%= yield %>
-<footer>
-  Brittany Walentin © <%= Time.now.year %>
-</footer>
+    <%= yield %>
+    <footer>
+      Brittany Walentin © <%= Time.now.year %>
+    </footer>
+  </div>
 </body>
 </html>

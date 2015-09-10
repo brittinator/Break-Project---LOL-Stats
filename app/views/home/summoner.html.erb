@@ -4,5 +4,8 @@
   <%= @summoner[:screen_name] %>
   Level <%= @summoner[:level] %>
 </h2>
+
+<%= link_to "Summary", summary_path(@summoner[:id]) %>
+
 <p>
 </p>

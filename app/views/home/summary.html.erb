@@ -1,0 +1,18 @@
+<h1>Summary</h1>
+
+<table class='table'>
+  <th>Type </th>
+  <th>Wins </th>
+  <th>Total Champion Kills </th>
+  <th>Total Assists </th>
+  <tr>
+  <% @response.each do |set| %>
+    <td><%= set["playerStatSummaryType"] %> </td>
+    <td><%= set["wins"] %> </td>
+    <td><%= set["aggregatedStats"]["totalChampionKills"] %> </td>
+    <td><%= set["aggregatedStats"] ["totalAssists"]%> </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= @response %>

@@ -2,9 +2,7 @@ require 'api_helper'
 
 class HomeController < ApplicationController
 
-
   def index
-
   end
 
   def get_summoner
@@ -13,6 +11,10 @@ class HomeController < ApplicationController
     response = ApiHelper.new.get_summoner_id(params[:summoner_name])
     @summoner = parse_response(response)
     render 'summoner'
+  end
+
+  def summary
+    @response = ApiHelper.new.summoner_summary(params[:summoner_id])
   end
 
   def parse_response(response)

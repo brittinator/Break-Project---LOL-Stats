@@ -4,7 +4,7 @@ unranked stats
 how many wins/losses/avg kills w/specific champion
 Match Mode - ARAM - all random all mid
 
-252007761
+
 
 broken by champion type
 /api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent

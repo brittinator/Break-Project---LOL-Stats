@@ -10,9 +10,20 @@ class HomeController < ApplicationController
   def get_summoner
     # name = params[:summoner_name]
     # @response = HTTParty.get(SUMMONER + name + AFTER + API_KEY)
-    # raise
     @response = ApiHelper.new.get_summoner_id(params[:summoner_name])
+    raise
+    render 'summoner'
   end
+
+  def parse_response
+    screen_name = @response.first[1]['name']
+    id = @response.first[1]['id']
+    level = @response.first[1]['summonerLevel']
+    icon = @response.first[1]['profileIcondId']
+
+  end
+
+
 
 #   def order_params
 #   params.require(:order).permit(:status, :email, :cc_name, :cc_number,

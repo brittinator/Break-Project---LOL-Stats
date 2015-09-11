@@ -41,6 +41,7 @@ class ApiHelper
       recent[:dummy] = 'dummy data',
       recent[:date] = Time.at(game["createDate"]/1000),
       recent[:champion] = champ.name,
+      recent[:champion_image] = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/' + champ.image,
       recent[:type] = champ.tags,
       recent[:championskilled] = game['stats']['championsKilled'],
       recent[:win] = game['stats']['win'],

@@ -1,6 +1,7 @@
 require 'api_helper'
 
 class HomeController < ApplicationController
+  CHAMPION_IMAGE = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/'
 
   def index
   end
@@ -37,7 +38,8 @@ class HomeController < ApplicationController
     screen_name = response.first[1]['name']
     id = response.first[1]['id']
     level = response.first[1]['summonerLevel']
-    icon = response.first[1]['profileIcondId']
+    icon = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/' + response.first[1]["profileIconId"].to_s + '.png'
+
     return {screen_name: screen_name, id: id, level: level, icon: icon}
 
   end

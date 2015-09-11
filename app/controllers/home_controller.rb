@@ -23,18 +23,14 @@ class HomeController < ApplicationController
     #    render 'index'
     #  else
        @summoner = parse_response(response)
-       @summary = ApiHelper.new.summoner_summary(@summoner[:id])
-       @recent = ApiHelper.new.recent(@summoner[:id])
-       @recent = @recent['games']
-       render 'summary'
+       render 'summoner'
 
     # end
   end
 
   def summary
-    @response = ApiHelper.new.summoner_summary(params[:summoner_id])
+    @summary = ApiHelper.new.summoner_summary(params[:summoner_id])
     @recent = ApiHelper.new.recent(params[:summoner_id])
-    @recent = @recent['games']
   end
 
   def parse_response(response)

@@ -28,17 +28,17 @@ class ApiHelper
 
   def recent(summoner_id)
     response = HTTParty.get(LOL + RECENT + summoner_id.to_s + '/recent' + AFTER + ENV['LOL_KEY'])
-    raise
-    rework_recent(response)
+    return rework_recent(response)
   end
 
   def rework_recent(response)
-    recent =
-    recent = {}
+    recent_game = []
 
     response['games'].each do |game|
-      recent[:mode] =  game['gameMode'],
       champ = Champion.find_by(lol_id: game['championId'])
+      recent = {}
+
+      recent[:mode] =  game['gameMode'],
       recent[:champion] = champ.name,
       recent[:type] = champ.tags,
       recent[:championskilled] = game['stats']['championsKilled'],
@@ -50,11 +50,12 @@ class ApiHelper
       recent[:largestMultiKill] = game['stats']['largestMultiKill'],
       recent[:totalDamageDealtToChampions] = game['stats']['totalDamageDealtToChampions'],
       recent[:turretsKilled] = game['stats']['turretsKilled'],
-      recent[:crowdControl] = game['stats']['totalTimeCrowdControlDealt']/60, # in minutes
-      recent[:totalHeal] = game['stats']['totalHeal']/60, # in minutes
+      recent[:crowdControl] = game['stats']['totalTimeCrowdControlDealt']
+      recent[:totalHeal] = game['stats']['totalHeal']
       # recent[:lane] = game['stats'][]
-
+      recent_game.push(recent)
     end
+    return recent_game
   end
 
 end

@@ -1,11 +1,6 @@
-<h1>Summoner Profile </h1>
-<h2>
-  <%= @summoner[:icon] %>
-  <%= @summoner[:screen_name] %>
-  Level <%= @summoner[:level] %>
-</h2>
 
-<h1>  <%= @summoner[:screen_name] %>'s Summary</h1>
+
+<h1>Summary</h1>
 
 <table class='table'>
   <th>Type </th>
@@ -25,9 +20,41 @@
 <table class='table'>
   <th> Mode </th>
   <th>Your Champion </th>
-  <th> Mode </th>
-  <th> Mode </th>
+  <th> Champion Type </th>
+  <th> Champions Killed </th>
+  <th> Total Damage Dealt To Champions </th>
 
+  <th> Total Healed </th>
+  <th> Crowd Control </th>
+  <th> Turrets Killed </th>
+  <th> Largest Multikill </th>
+  <th> Killing Spree </th>
+
+  <th> Assists </th>
+  <th> Deaths </th>
+  <th> Gold </th>
+  <th> Win? </th>
+  <%= @recent.each do |game| %>
+    <tr>
+      <td> <%= game[:mode] %> </td>
+      <td><%= game[:champion] %> </td>
+      <td><%= game[:type] %> </td>
+      <td><%= game[:championskilled] %> </td>
+      <td><%= game[:] %> </td>
+
+      <td><%= game[:] %> </td>
+      <td><%= game[:] %> </td>
+      <td><%= game[:] %> </td>
+      <td><%= game[:] %> </td>
+      <td><%= game[:] %> </td>
+
+      <td><%= game[:] %> </td>
+      <td><%= game[:] %> </td>
+      <td><%= game[:] %> </td>
+      <td><%= game[:] %> </td>
+
+    </tr>
+  <% end  %>
 </table>
 
 recent

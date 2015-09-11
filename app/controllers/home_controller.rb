@@ -6,6 +6,11 @@ class HomeController < ApplicationController
   end
 
   def get_summoner
+    if params[:summoner_name].nil?
+        flash[:error] = "Please enter your summoner name."
+        render 'index'
+    end
+    
     response = ApiHelper.new.get_summoner_id(params[:summoner_name])
     # if response['status'] == 200
       # @summoner = parse_response(response)
@@ -19,7 +24,10 @@ class HomeController < ApplicationController
     #    render 'index'
     #  else
        @summoner = parse_response(response)
-       render 'summoner'
+       @response = ApiHelper.new.summoner_summary(params[:summoner_id])
+       @recent = ApiHelper.new.recent(params[:summoner_id])
+       @recent = @recent['games']
+       render 'summary'
 
     # end
   end

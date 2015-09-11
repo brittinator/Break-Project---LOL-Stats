@@ -5,6 +5,7 @@ class CreateChampions < ActiveRecord::Migration
       t.string  :name
       t.string  :title
       t.string :image
+      t.string :tags
       t.timestamps null: false
     end
   end

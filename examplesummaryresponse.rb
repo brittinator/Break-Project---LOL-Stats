@@ -27,3 +27,42 @@ keys:
 => {"playerStatSummaryType"=>"Bilgewater", "wins"=>11, "modifyDate"=>1441852567000, "aggregatedStats"=>{"totalChampionKills"=>120, "totalMinionKills"=>2193, "totalTurretsKilled"=>21, "totalNeutralMinionsKilled"=>437, "totalAssists"=>162}}
 9
 => {"playerStatSummaryType"=>"AramUnranked5x5", "wins"=>1023, "modifyDate"=>1441860681000, "aggregatedStats"=>{"totalChampionKills"=>20120, "totalTurretsKilled"=>1156, "totalAssists"=>38646}}
+
+
+
+
+Games
+
+'gameMode'
+'championId'
+  Champion.find_by(lol_id: )
+champion type
+
+
+{"gameId"=>1946615933, "invalid"=>false,
+  "gameMode"=>"ARAM", "gameType"=>"MATCHED_GAME",
+  "subType"=>"ARAM_UNRANKED_5x5", "mapId"=>12, "teamId"=>100,
+  "championId"=>120, "spell1"=>6, "spell2"=>1, "level"=>30,
+  "ipEarned"=>246, "createDate"=>1441927531524,
+  "fellowPlayers"=>[{"summonerId"=>29412796, "teamId"=>200, "championId"=>91},
+    {"summonerId"=>29743649, "teamId"=>100, "championId"=>267},
+    {"summonerId"=>20892765, "teamId"=>100, "championId"=>17},
+    {"summonerId"=>42113916, "teamId"=>200, "championId"=>43},
+    {"summonerId"=>44569487, "teamId"=>200, "championId"=>121},
+    {"summonerId"=>28995576, "teamId"=>200, "championId"=>75},
+    {"summonerId"=>45222264, "teamId"=>100, "championId"=>72},
+    {"summonerId"=>38692000, "teamId"=>100, "championId"=>254},
+    {"summonerId"=>51631432, "teamId"=>200, "championId"=>34}],
+  "stats"=>{"level"=>18, "goldEarned"=>17651, "numDeaths"=>12,
+    "barracksKilled"=>1, "turretsKilled"=>1, "minionsKilled"=>54,
+    "championsKilled"=>17, "goldSpent"=>16150, "totalDamageDealt"=>104852,
+    "totalDamageTaken"=>61251, "doubleKills"=>3, "killingSprees"=>4,
+    "largestKillingSpree"=>5, "team"=>100, "win"=>true, "largestMultiKill"=>2,
+    "physicalDamageDealtPlayer"=>68511, "magicDamageDealtPlayer"=>36340,
+    "physicalDamageTaken"=>30281, "magicDamageTaken"=>30028,
+    "largestCriticalStrike"=>501, "timePlayed"=>2140, "totalHeal"=>14727,
+    "totalUnitsHealed"=>1, "assists"=>35, "item0"=>3009, "item1"=>3142,
+    "item2"=>3742, "item3"=>3065, "item4"=>3068, "item5"=>3025,
+    "magicDamageDealtToChampions"=>14930, "physicalDamageDealtToChampions"=>28340,
+    "totalDamageDealtToChampions"=>43270, "trueDamageTaken"=>941,
+    "totalTimeCrowdControlDealt"=>452}}

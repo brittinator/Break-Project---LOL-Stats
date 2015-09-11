@@ -6,27 +6,28 @@ class HomeController < ApplicationController
   end
 
   def get_summoner
-    # name = params[:summoner_name]
-    # @response = HTTParty.get(SUMMONER + name + AFTER + API_KEY)
     response = ApiHelper.new.get_summoner_id(params[:summoner_name])
-    if response['status'] == 200
-      @summoner = parse_response(response)
-      render 'summoner'
-    elsif response['status'] == 404
-      flash[:error] = "Summoner information not found. Please try again."
-      render 'index'
-    else
-      flash[:error] = "Something went wrong and Riot Games is not responding.
-       Please try again later."
-       render 'index'
+    # if response['status'] == 200
+      # @summoner = parse_response(response)
+      # render 'summoner'
+    # elsif response['status'] == 404
+    #   flash[:error] = "Summoner information not found. Please try again."
+    #   render 'index'
+    # elsif
+    #   flash[:error] = "Something went wrong and Riot Games is not responding.
+    #    Please try again later."
+    #    render 'index'
+    #  else
+       @summoner = parse_response(response)
+       render 'summoner'
 
-    end
+    # end
   end
 
   def summary
     @response = ApiHelper.new.summoner_summary(params[:summoner_id])
-    # @recent = ApiHelper.new.recent(params[:summoner_id])
-    # raise
+    @recent = ApiHelper.new.recent(params[:summoner_id])
+    @recent = @recent['games']
   end
 
   def parse_response(response)

@@ -22,12 +22,39 @@ class ApiHelper
   end
 
   def summoner_summary(summoner_id)
-    response = HTTParty.get(LOL + SUMMARY + summoner_id + "/summary" + AFTER + ENV['LOL_KEY'])
+    response = HTTParty.get(LOL + SUMMARY + summoner_id.to_s + "/summary" + AFTER + ENV['LOL_KEY'])
     return response["playerStatSummaries"]
   end
 
   def recent(summoner_id)
-    response = HTTParty.get(LOL + RECENT + summoner_id + '/recent' + AFTER + ENV['LOL_KEY'])
+    response = HTTParty.get(LOL + RECENT + summoner_id.to_s + '/recent' + AFTER + ENV['LOL_KEY'])
+    raise
+    rework_recent(response)
+  end
+
+  def rework_recent(response)
+    recent =
+    recent = {}
+
+    response['games'].each do |game|
+      recent[:mode] =  game['gameMode'],
+      champ = Champion.find_by(lol_id: game['championId'])
+      recent[:champion] = champ.name,
+      recent[:type] = champ.tags,
+      recent[:championskilled] = game['stats']['championsKilled'],
+      recent[:win] = game['stats']['win'],
+      recent[:gold] = game['stats']['goldEarned'],
+      recent[:deaths] = game['stats']['numDeaths'],
+      recent[:assists] = game['stats']['assists'],
+      recent[:killingsprees] = game['stats']['killingSprees'],
+      recent[:largestMultiKill] = game['stats']['largestMultiKill'],
+      recent[:totalDamageDealtToChampions] = game['stats']['totalDamageDealtToChampions'],
+      recent[:turretsKilled] = game['stats']['turretsKilled'],
+      recent[:crowdControl] = game['stats']['totalTimeCrowdControlDealt']/60, # in minutes
+      recent[:totalHeal] = game['stats']['totalHeal']/60, # in minutes
+      # recent[:lane] = game['stats'][]
+
+    end
   end
 
 end

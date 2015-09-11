@@ -5,7 +5,7 @@
   Level <%= @summoner[:level] %>
 </h2>
 
-<h1>Summary</h1>
+<h1>  <%= @summoner[:screen_name] %>'s Summary</h1>
 
 <table class='table'>
   <th>Type </th>
@@ -13,7 +13,7 @@
   <th>Total Champion Kills </th>
   <th>Total Assists </th>
   <tr>
-  <% @response.each do |set| %>
+  <% @summary.each do |set| %>
     <td><%= set["playerStatSummaryType"] %> </td>
     <td><%= set["wins"] %> </td>
     <td><%= set["aggregatedStats"]["totalChampionKills"] %> </td>
@@ -22,6 +22,13 @@
   <% end %>
 </table>
 
-<%= @response %>
+<table class='table'>
+  <th> Mode </th>
+  <th>Your Champion </th>
+  <th> Mode </th>
+  <th> Mode </th>
+
+</table>
+
 recent
 <%= @recent %>

@@ -1,5 +1,4 @@
 
-
 <h1>Summary</h1>
 
 <table class='table'>
@@ -18,6 +17,7 @@
 </table>
 
 <table class='table'>
+  <th> Date </th>
   <th> Mode </th>
   <th>Your Champion </th>
   <th> Champion Type </th>
@@ -34,28 +34,26 @@
   <th> Deaths </th>
   <th> Gold </th>
   <th> Win? </th>
-  <%= @recent.each do |game| %>
+  <% @recent.each do |game| %>
     <tr>
-      <td> <%= game[:mode] %> </td>
+      <td><%= game[:date] %> </td>
+      <td><%= game[:gameMode] %> </td>
       <td><%= game[:champion] %> </td>
       <td><%= game[:type] %> </td>
       <td><%= game[:championskilled] %> </td>
-      <td><%= game[:] %> </td>
+      <td><%= game[:totalDamageDealtToChampions] %> </td>
 
-      <td><%= game[:] %> </td>
-      <td><%= game[:] %> </td>
-      <td><%= game[:] %> </td>
-      <td><%= game[:] %> </td>
-      <td><%= game[:] %> </td>
+      <td><%= game[:totalHeal] %> </td>
+      <td><%= game[:crowdControl] %> </td>
+      <td><%= game[:turretsKilled] %> </td>
+      <td><%= game[:largestMultiKill] %> </td>
+      <td><%= game[:killingsprees] %> </td>
 
-      <td><%= game[:] %> </td>
-      <td><%= game[:] %> </td>
-      <td><%= game[:] %> </td>
-      <td><%= game[:] %> </td>
+      <td><%= game[:assists] %> </td>
+      <td><%= game[:deaths] %> </td>
+      <td><%= game[:gold] %> </td>
+      <td><%= game[:win] %> </td>
 
     </tr>
   <% end  %>
 </table>
-
-recent
-<%= @recent %>

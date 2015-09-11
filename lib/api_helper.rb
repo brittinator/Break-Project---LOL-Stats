@@ -38,7 +38,8 @@ class ApiHelper
       champ = Champion.find_by(lol_id: game['championId'])
       recent = {}
 
-      recent[:mode] =  game['gameMode'],
+      recent[:dummy] = 'dummy data',
+      recent[:date] = Time.at(game["createDate"]/1000),
       recent[:champion] = champ.name,
       recent[:type] = champ.tags,
       recent[:championskilled] = game['stats']['championsKilled'],
@@ -50,8 +51,9 @@ class ApiHelper
       recent[:largestMultiKill] = game['stats']['largestMultiKill'],
       recent[:totalDamageDealtToChampions] = game['stats']['totalDamageDealtToChampions'],
       recent[:turretsKilled] = game['stats']['turretsKilled'],
-      recent[:crowdControl] = game['stats']['totalTimeCrowdControlDealt']
-      recent[:totalHeal] = game['stats']['totalHeal']
+      recent[:crowdControl] = game['stats']['totalTimeCrowdControlDealt'],
+      recent[:totalHeal] = game['stats']['totalHeal'],
+      recent[:gameMode] =  game['gameMode'] # hard wired so I can continue this project
       # recent[:lane] = game['stats'][]
       recent_game.push(recent)
     end

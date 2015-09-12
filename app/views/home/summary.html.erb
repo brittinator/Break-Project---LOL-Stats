@@ -38,7 +38,8 @@
     <tr>
       <td><%= game[:date] %> </td>
       <td><%= game[:gameMode] %> </td>
-      <td><%= game[:champion] %> </td>
+      <td>  <%= image_tag(game[:champion_image]) %>
+            <%= game[:champion] %> </td>
       <td><%= game[:type] %> </td>
       <td><%= game[:championskilled] %> </td>
       <td><%= game[:totalDamageDealtToChampions] %> </td>

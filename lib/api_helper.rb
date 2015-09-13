@@ -38,7 +38,7 @@ class ApiHelper
       champ = Champion.find_by(lol_id: game['championId'])
       recent = {}
 
-      recent[:dummy] = 'dummy data',
+      recent[:dummy] = 'dummy data', # this is so the data is returned nicely
       recent[:date] = Time.at(game["createDate"]/1000),
       recent[:champion] = champ.name,
       recent[:champion_image] = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/' + champ.image,
@@ -54,35 +54,60 @@ class ApiHelper
       recent[:turretsKilled] = game['stats']['turretsKilled'],
       recent[:crowdControl] = game['stats']['totalTimeCrowdControlDealt'],
       recent[:totalHeal] = game['stats']['totalHeal'],
-      recent[:gameMode] =  game['gameMode'] # hard wired so I can continue this project
+      recent[:gameMode] =  game['gameMode']
       recent_game.push(recent)
     end
 
-    avg_stats = average_stats(recent_game)
+    @avg_stats = average_stats(recent_game)
     recent_game.push(avg_stats)
 
     return recent_game
   end
 
   def average_stats(games)
+  #   averages = {}
+  #   factors = [
+  #     :gold, :championskilled, :deaths,
+  #     :assists, :totalDamageDealtToChampions
+  #   ]
+  #   length = games.length
+  #   factors.each do |factor|
+  #     sum = 0
+  #     ave = 0
+  #
+  #     games.each do |game|
+  #       if game[factor].nil?
+  #         next
+  #       end
+  #       sum += game[factor]
+  #     end
+  #     ave = sum/length
+  #     averages[factor] = ave
+  #   end
+
     averages = {}
-    factors = [
-      :championskilled, :gold, :deaths,
-      :assists, :totalDamageDealtToChampions
-    ]
-    length = games.length
-    factors.each do |factor|
-      sum = 0
-      games.each {|game| sum += game[factor]}
-      # factor.to_s = sum/length
-      average_stats[factor] = sum/length
+    gold = 0
+    championskilled = 0
+    deaths = 0
+    assists = 0
+    totalDamageDealtToChampions = 0
+
+    games.each do |game|
+      gold += games[:gold]
+      championskilled += game[:championskilled]
+      deaths += game[:deaths]
+      assists += game[:assists]
+      totalDamageDealtToChampions += game[:totalDamageDealtToChampions]
     end
+
+    averages[:gold] = gold
+    averages[:championskilled] = championskilled
+    averages[:deaths] = deaths
+    averages[:assists] = assists
+    averages[:totalDamageDealtToChampions] = totalDamageDealtToChampions
 
     return averages
 
   end
 
 end
-
-# average - kills, gold, deaths, assists, damage,
-# damage/time, average game time

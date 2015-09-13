@@ -55,10 +55,34 @@ class ApiHelper
       recent[:crowdControl] = game['stats']['totalTimeCrowdControlDealt'],
       recent[:totalHeal] = game['stats']['totalHeal'],
       recent[:gameMode] =  game['gameMode'] # hard wired so I can continue this project
-      # recent[:lane] = game['stats'][]
       recent_game.push(recent)
     end
+
+    avg_stats = average_stats(recent_game)
+    recent_game.push(avg_stats)
+
     return recent_game
   end
 
+  def average_stats(games)
+    averages = {}
+    factors = [
+      :championskilled, :gold, :deaths,
+      :assists, :totalDamageDealtToChampions
+    ]
+    length = games.length
+    factors.each do |factor|
+      sum = 0
+      games.each {|game| sum += game[factor]}
+      # factor.to_s = sum/length
+      average_stats[factor] = sum/length
+    end
+
+    return averages
+
+  end
+
 end
+
+# average - kills, gold, deaths, assists, damage,
+# damage/time, average game time

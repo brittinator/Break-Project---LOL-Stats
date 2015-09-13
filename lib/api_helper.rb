@@ -58,7 +58,7 @@ class ApiHelper
       recent_game.push(recent)
     end
 
-    @avg_stats = average_stats(recent_game)
+    avg_stats = average_stats(recent_game)
     recent_game.push(avg_stats)
 
     return recent_game
@@ -86,18 +86,31 @@ class ApiHelper
   #   end
 
     averages = {}
+    wins = 0
     gold = 0
     championskilled = 0
     deaths = 0
     assists = 0
     totalDamageDealtToChampions = 0
 
-    games.each do |game|
-      gold += games[:gold]
-      championskilled += game[:championskilled]
-      deaths += game[:deaths]
-      assists += game[:assists]
-      totalDamageDealtToChampions += game[:totalDamageDealtToChampions]
+    games.each_index do |index|
+      puts index
+      puts 'gold: ' + games[index][:gold].to_s
+      puts 'killed: ' + games[index][:championskilled].to_s
+      puts 'deaths: ' + games[index][:deaths].to_s
+      puts 'assists: ' + games[index][:assists].to_s
+      puts "total: " + games[index][:totalDamageDealtToChampions].to_s
+
+      gold += games[index][:gold]
+
+      if games[index][:championskilled].nil?
+        championskilled += 0
+      else
+        championskilled += games[index][:championskilled]
+      end
+      deaths += games[index][:deaths]
+      assists += games[index][:assists]
+      totalDamageDealtToChampions += games[index][:totalDamageDealtToChampions]
     end
 
     averages[:gold] = gold

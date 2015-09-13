@@ -1,15 +1,17 @@
 
 <h1>Summary</h1>
 
-<h2>Last Ten Games</h2>
+<h2>Average per Game (base on last 10 games)</h2>
 <p> Win Streak</p>
+<p> Gold <%= @recent[-1][:gold] %> </p>
+<p> <%= @recent[-1][:championskilled] %>Champions Killed </p>
+<p> <%= @recent[-1][:deaths] %> Deaths </p>
+<p> <%= @recent[-1][:assists] %>Assists </p>
+<p> <%= @recent[-1][:totalDamageDealtToChampions] %> in Champion Damage Dealt by you </p>
+<p> <%= @recent[-1][:gold] %></p>
 <p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<%= @recent %>
+
 
 <h2>Most Recent Ten Games Played</h2>
 <table class='table'>

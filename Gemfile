@@ -48,6 +48,10 @@ group :development, :test do
   gem 'simplecov', require: false
 end
 
+group :test do
+  gem 'webmock'
+end
+
 group :development do
   # better errors
   gem 'better_errors'
@@ -66,6 +70,6 @@ group :development do
 gem 'sqlite3'
 end
 
-group :production do
-    gem 'pg'
-end
+# group :production do
+#     gem 'pg'
+# end

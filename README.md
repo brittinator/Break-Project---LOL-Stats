@@ -4,13 +4,13 @@ This project aims to serve players of Riot's League of Legends game with real-ti
 
 - What is the goal of the project?
   * Play with a game API (League Of Legends, or LOL) while also dealing with stats.
-  * Gain better handle on web page flow/presentation  
+  * Gain better handle on web page flow/presentation - didn't really get to this
 - Who is the target audience (can be just yourself)?
   * People who play LOL
 - What are your personal learning goals?
   * Understand an API independently (no one else I know has worked with this)
-  * Work with javascript page rendering
-  * CSS styling (drop down menus, clean lines, etc)  
+  * Work with javascript page rendering - didn't get to this
+  * CSS styling (drop down menus, clean lines, etc) - didn't get to this
 - What technologies/frameworks/patterns will you be employing?
   * LOL API calls
   * JSON

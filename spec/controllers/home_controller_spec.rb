@@ -76,19 +76,20 @@ RSpec.describe HomeController, type: :controller do
 
   describe "POST #get_summoner" do
     context "invalid params" do
-      before(:each) do
-        post :get_summoner, summoner_name: ""
-      end
+      # it "renders index page when API not responding" do
+      #   VCR.use_cassette 'cashmoney_sucessful_no_internet' do
+      #     post :get_summoner, summoner_name: "cashmoneyrecords"
+      #     expect(response).to render_template("index")
+      #   end
+      # end
 
-      it "renders index page" do
+      it "renders index page when name is blank" do
+        post :get_summoner, summoner_name: ""
         expect(response).to render_template("index")
       end
     end
 
     context "valid params" do
-      # before(:each) do
-      #   post :get_summoner, summoner_name: "agentscreech"
-      # end
       it "returns successfully with HTTP code of 200" do
         VCR.use_cassette 'cashmoney_sucessful_get_summoner' do
           post :get_summoner, summoner_name: "cashmoneyrecords"
@@ -100,13 +101,23 @@ RSpec.describe HomeController, type: :controller do
   end
 
   describe "GET #summary" do
-    # I'm guessing this is failing b/c of my database, I'd need a test db w/champions
-    it "returns successfully with HTTP code of 200" do
+    before(:each) do
       VCR.use_cassette 'cashmoney_sucessful_summary' do
         response = get :summary, summoner_id: 20595912
-        expect(response).to render_template("summary")
       end
     end
+
+    it "renders summary page" do
+        expect(response).to render_template("summary")
+    end
+    # it 'contains the @summary keys for wins' do
+    #   expect(@summary).to eq(true)
+    # end
+    #
+    # it 'contains @recent games' do
+    #   expect(@recent).to eq(true)
+    # end
+
   end
 
 

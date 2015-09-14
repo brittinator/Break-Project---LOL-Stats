@@ -7,9 +7,6 @@ class ApiHelper
   SUMMARY = '/api/lol/na/v1.3/stats/by-summoner/'
   CHAMPION = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image,tags&api_key='
   RECENT = 'api/lol/na/v1.3/game/by-summoner/' # Collection of recent games played (max 10)
-  # https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/agentscreech?api_key=
-  # https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image&api_key=
-  # /api/lol/{region}/v1.3/game/by-summoner/{summonerId}/recent
 
   def get_summoner_id(name)
     response = HTTParty.get(LOL + SUMMONER + name + AFTER + ENV['LOL_KEY'])
@@ -86,7 +83,8 @@ class ApiHelper
   #   end
 
     averages = {}
-    wins = 0
+    length = games.length
+    win = 0
     gold = 0
     championskilled = 0
     deaths = 0
@@ -108,16 +106,21 @@ class ApiHelper
       else
         championskilled += games[index][:championskilled]
       end
+
+      if games[index][:win] == true
+        win += 1
+      end
       deaths += games[index][:deaths]
       assists += games[index][:assists]
       totalDamageDealtToChampions += games[index][:totalDamageDealtToChampions]
     end
 
-    averages[:gold] = gold
-    averages[:championskilled] = championskilled
-    averages[:deaths] = deaths
-    averages[:assists] = assists
-    averages[:totalDamageDealtToChampions] = totalDamageDealtToChampions
+    averages[:gold] = gold/length
+    averages[:championskilled] = championskilled/length
+    averages[:win] = win/length
+    averages[:deaths] = deaths/length
+    averages[:assists] = assists/length
+    averages[:totalDamageDealtToChampions] = totalDamageDealtToChampions/length
 
     return averages
 

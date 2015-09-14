@@ -1,16 +1,15 @@
 
-<h1>Summary</h1>
+<h1>Your Summary</h1>
 
-<h2>Average per Game (base on last 10 games)</h2>
-<p> Win Streak</p>
+<h2>Average/game (based on last 10 games)</h2>
+<p> Winning Streak of <%= @recent[-1][:win] %> </p>
 <p> Gold <%= @recent[-1][:gold] %> </p>
-<p> <%= @recent[-1][:championskilled] %>Champions Killed </p>
+<p> <%= @recent[-1][:championskilled] %> Champions Killed </p>
 <p> <%= @recent[-1][:deaths] %> Deaths </p>
-<p> <%= @recent[-1][:assists] %>Assists </p>
-<p> <%= @recent[-1][:totalDamageDealtToChampions] %> in Champion Damage Dealt by you </p>
+<p> <%= @recent[-1][:assists] %> Assists </p>
+<p> <%= @recent[-1][:totalDamageDealtToChampions] %> in Champion Damage Dealt </p>
 <p> <%= @recent[-1][:gold] %></p>
 <p> </p>
-<%= @recent %>
 
 
 <h2>Most Recent Ten Games Played</h2>
@@ -35,7 +34,6 @@
   <th> Date </th>
   <th> Mode </th>
   <th>Your Champion </th>
-  <th> Champion Type </th>
   <th> Champions Killed </th>
   <th> Total Damage Dealt To Champions </th>
 
@@ -55,7 +53,6 @@
       <td><%= game[:gameMode] %> </td>
       <td>  <%= image_tag(game[:champion_image]) %>
             <%= game[:champion] %> </td>
-      <td><%= game[:type] %> </td>
       <td><%= game[:championskilled] %> </td>
       <td><%= game[:totalDamageDealtToChampions] %> </td>
 

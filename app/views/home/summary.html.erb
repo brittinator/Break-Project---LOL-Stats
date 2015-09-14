@@ -8,11 +8,8 @@
 <p> <%= @recent[-1][:deaths] %> Deaths </p>
 <p> <%= @recent[-1][:assists] %> Assists </p>
 <p> <%= @recent[-1][:totalDamageDealtToChampions] %> in Champion Damage Dealt </p>
-<p> <%= @recent[-1][:gold] %></p>
-<p> </p>
 
-
-<h2>Most Recent Ten Games Played</h2>
+<h2>Overall Summary</h2>
 <table class='table'>
   <th>Type </th>
   <th>Wins </th>
@@ -28,8 +25,7 @@
   <% end %>
 </table>
 
-
-
+<h2>Most Recent Ten Games Played</h2>
 <table class='table'>
   <th> Date </th>
   <th> Mode </th>
@@ -65,7 +61,14 @@
       <td><%= game[:assists] %> </td>
       <td><%= game[:deaths] %> </td>
       <td><%= game[:gold] %> </td>
-      <td><%= game[:win] %> </td>
+
+      <td>
+        <% if game[:win] == true %>
+          <%= image_tag('thumbup.jpg', height: '80', width: '100')  %>
+        <% else %>
+          <%= image_tag('thumbdown.jpg', height: '90', width: '100')  %>
+        <% end %>
+      </td>
 
     </tr>
   <% end  %>

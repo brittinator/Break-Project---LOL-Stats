@@ -34,6 +34,7 @@
   <th> Total Damage Dealt To Champions </th>
 
   <th> Total Healed </th>
+  <th> Items </th>
   <th> Crowd Control </th>
   <th> Turrets Killed </th>
   <th> Largest Multikill </th>
@@ -53,6 +54,14 @@
       <td><%= game[:totalDamageDealtToChampions] %> </td>
 
       <td><%= game[:totalHeal] %> </td>
+      <td>
+        <%= image_tag(game[:item0]) %>
+        <%= image_tag(game[:item1]) %>
+        <%= image_tag(game[:item2]) %>
+        <%= image_tag(game[:item3]) %>
+        <%= image_tag(game[:item4]) %>
+        <%= image_tag(game[:item5]) %>
+      </td>
       <td><%= game[:crowdControl] %> </td>
       <td><%= game[:turretsKilled] %> </td>
       <td><%= game[:largestMultiKill] %> </td>

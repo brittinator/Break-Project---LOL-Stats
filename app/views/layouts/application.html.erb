@@ -11,12 +11,7 @@
 
     <%= yield %>
 
-    <% num = rand(0..126) %>
-    <% champion = Champion.find[num].image %>
 
-    <%= image_tag('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + champion + '_0.jpg', style: "opacity:0.5; filter:alpha(opacity=50);", id:"background_image")%>
-
-    <%= images[num] %>
     <footer>
       Brittany Walentin © <%= Time.now.year %>
     </footer>

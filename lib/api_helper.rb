@@ -7,6 +7,7 @@ class ApiHelper
   SUMMARY = '/api/lol/na/v1.3/stats/by-summoner/'
   CHAMPION = 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image,tags&api_key='
   RECENT = 'api/lol/na/v1.3/game/by-summoner/' # Collection of recent games played (max 10)
+  ITEM = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/'
 
   def get_summoner_id(name)
     response = HTTParty.get(LOL + SUMMONER + name + AFTER + ENV['LOL_KEY'])
@@ -51,7 +52,14 @@ class ApiHelper
       recent[:turretsKilled] = game['stats']['turretsKilled'],
       recent[:crowdControl] = game['stats']['totalTimeCrowdControlDealt'],
       recent[:totalHeal] = game['stats']['totalHeal'],
+      recent[:item0] = ITEM + game['stats']['item0'].to_s + '.png',
+      recent[:item1] = ITEM + game['stats']['item1'].to_s + '.png',
+      recent[:item2] = ITEM + game['stats']['item2'].to_s + '.png',
+      recent[:item3] = ITEM + game['stats']['item3'].to_s + '.png',
+      recent[:item4] = ITEM + game['stats']['item4'].to_s + '.png',
+      recent[:item5] = ITEM + game['stats']['item5'].to_s + '.png',
       recent[:gameMode] =  game['gameMode']
+
       recent_game.push(recent)
     end
 

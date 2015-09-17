@@ -72,12 +72,12 @@ class ApiHelper
   def average_stats(games)
     averages = {}
     length = games.length
-    win = 0
-    gold = 0
-    championskilled = 0
-    deaths = 0
-    assists = 0
-    totalDamageDealtToChampions = 0
+    win = 0.0
+    gold = 0.0
+    championskilled = 0.0
+    deaths = 0.0
+    assists = 0.0
+    totalDamageDealtToChampions = 0.0
 
     games.each_index do |index|
       # puts index
@@ -88,19 +88,19 @@ class ApiHelper
       # puts "total: " + games[index][:totalDamageDealtToChampions].to_s
 
       if games[index][:championskilled].nil?
-        championskilled += 0
+        championskilled += 0.0
       else
         championskilled += games[index][:championskilled]
       end
 
       if games[index][:assists].nil?
-        assists += 0
+        assists += 0.0
       else
         assists += games[index][:assists]
       end
 
       if games[index][:win] == true
-        win += 1
+        win += 1.0
       end
 
       gold += games[index][:gold]

@@ -80,12 +80,7 @@ class ApiHelper
     totalDamageDealtToChampions = 0.0
 
     games.each_index do |index|
-      # puts index
-      # puts 'gold: ' + games[index][:gold].to_s
-      # puts 'killed: ' + games[index][:championskilled].to_s
-      # puts 'deaths: ' + games[index][:deaths].to_s
       # puts 'assists: ' + games[index][:assists].to_s
-      # puts "total: " + games[index][:totalDamageDealtToChampions].to_s
 
       if games[index][:championskilled].nil?
         championskilled += 0.0
@@ -110,7 +105,7 @@ class ApiHelper
 
     averages[:gold] = gold/length
     averages[:championskilled] = championskilled/length
-    averages[:win] = win/length
+    averages[:win] = (win/length * 100)
     averages[:deaths] = deaths/length
     averages[:assists] = assists/length
     averages[:totalDamageDealtToChampions] = totalDamageDealtToChampions/length

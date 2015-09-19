@@ -1,82 +1,27 @@
-
 <h1>Your Summary</h1>
-<div class="col-md-6">
-  <h2>Average Over Ten Games</h2>
-  <p> <%= winning_image(@recent[-1][:win]) %> Winning <%= @recent[-1][:win] %>% of the Time </p>
-  <p> <%= image_tag('skull', size: '63x64')%> <%= @recent[-1][:championskilled] %> Kills </p>
-  <p> <%= image_tag('coin', size: '42x64') %> Gold <%= @recent[-1][:gold] %> </p>
-  <p> <%= image_tag('x', size: '64x63')%>  <%= @recent[-1][:deaths] %> Deaths </p>
-  <p> <%= image_tag('handshake', size: '64x32') %> <%= @recent[-1][:assists] %> Assists </p>
-  <p> <%= image_tag('explosion', size: '64x58') %> <%= @recent[-1][:totalDamageDealtToChampions] %> in Champion Damage Dealt </p>
+<div class='row'>
+  <div class="col-md-6">
+    <h2>Average Over Ten Games</h2>
+    <p> <%= winning_image(@recent[-1][:win]) %> Winning <%= @recent[-1][:win] %>% of the Time </p>
+    <p> <%= image_tag('skull', size: '63x64')%> <%= @recent[-1][:championskilled] %> Kills </p>
+    <p> <%= image_tag('coin', size: '42x64') %> Gold <%= @recent[-1][:gold] %> </p>
+    <p> <%= image_tag('x', size: '64x63')%>  <%= @recent[-1][:deaths] %> Deaths </p>
+    <p> <%= image_tag('handshake', size: '64x32') %> <%= @recent[-1][:assists] %> Assists </p>
+    <p> <%= image_tag('explosion', size: '64x58') %> <%= @recent[-1][:totalDamageDealtToChampions] %> Damage Dealt </p>
+  </div>
+  <div class="col-md-6">
+    <h2>All Time Summary</h2>
+    <table class='table'>
+      <th>Mode </th>
+      <th>Wins/Kills/Assists </th>
+      <tr>
+      <% @summary.each do |set| %>
+        <td><%= set["playerStatSummaryType"] %> </td>
+        <td><%= set["wins"] %> / <%= set["aggregatedStats"]["totalChampionKills"] %> / <%= set["aggregatedStats"] ["totalAssists"]%> </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
-<div class="col-md-6">
-  <h2>All Time Summary</h2>
-  <table class='table'>
-    <th>Mode </th>
-    <th>Wins/Kills/Assists </th>
-    <tr>
-    <% @summary.each do |set| %>
-      <td><%= set["playerStatSummaryType"] %> </td>
-      <td><%= set["wins"] %> / <%= set["aggregatedStats"]["totalChampionKills"] %> / <%= set["aggregatedStats"] ["totalAssists"]%> </td>
-    </tr>
-    <% end %>
-  </table>
-</div>
 
-<h2>Most Recent Ten Games Played</h2>
-<table class='table'>
-  <th> Date </th>
-  <th> Mode </th>
-  <th>Your Champion </th>
-  <th> Champions Killed </th>
-  <th> Total Damage Dealt To Champions </th>
-
-  <th> Total Healed </th>
-  <th> Items </th>
-  <th> Crowd Control </th>
-  <th> Turrets Killed </th>
-  <th> Largest Multikill </th>
-  <th> Killing Spree </th>
-
-  <th> Assists </th>
-  <th> Deaths </th>
-  <th> Gold </th>
-  <th> Win? </th>
-  <% @recent.each do |game| %>
-    <tr>
-      <td><%= game[:date] %> </td>
-      <td><%= game[:gameMode] %> </td>
-      <td>  <%= image_tag(game[:champion_image]) %>
-            <%= game[:champion] %> </td>
-      <td><%= game[:championskilled] %> </td>
-      <td><%= game[:totalDamageDealtToChampions] %> </td>
-
-      <td><%= game[:totalHeal] %> </td>
-      <td>
-        <%= image_tag(game[:item0]) %>
-        <%= image_tag(game[:item1]) %>
-        <%= image_tag(game[:item2]) %>
-        <%= image_tag(game[:item3]) %>
-        <%= image_tag(game[:item4]) %>
-        <%= image_tag(game[:item5]) %>
-      </td>
-      <td><%= game[:crowdControl] %> </td>
-      <td><%= game[:turretsKilled] %> </td>
-      <td><%= game[:largestMultiKill] %> </td>
-      <td><%= game[:killingsprees] %> </td>
-
-      <td><%= game[:assists] %> </td>
-      <td><%= game[:deaths] %> </td>
-      <td><%= game[:gold] %> </td>
-
-      <td>
-        <% if game[:win] == true %>
-          <%= image_tag('thumbup.jpg', height: '80', width: '100')  %>
-        <% else %>
-          <%= image_tag('thumbdown.jpg', height: '90', width: '100')  %>
-        <% end %>
-      </td>
-
-    </tr>
-  <% end  %>
-</table>
+<%= render partial: 'shared/game', locals: {recent: @recent} %>

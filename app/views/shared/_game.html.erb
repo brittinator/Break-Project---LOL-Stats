@@ -1,0 +1,51 @@
+<h2>Most Recent Ten Games Played </h2>
+<table class='table'>
+  <th> </th>
+  <th> </th>
+  <th> </th>
+  <th> </th>
+  <th> Damage Dealt </th>
+  <th> Killing Spree </th>
+  <th> Largest Multikill </th>
+
+<% recent.each do |game| %>
+  <tr>
+    <td><%= game[:date] %> </td>
+    <td><%= game[:gameMode] %> </td>
+    <td>
+      <p><%= image_tag(game[:champion_image]) %> </p>
+      <p><%= game[:champion] %> </p>
+    </td>
+    <td>
+      <p><%= game[:championskilled] %>/<%= game[:deaths] %>/<%= game[:assists] %> </p>
+      <p>K/D/A</p>
+    </td>
+    <td><%= game[:totalDamageDealtToChampions] %> </td>
+    <td><%= game[:killingsprees] %> </td>
+    <td><%= game[:largestMultiKill] %> </td>
+  </tr>
+  <tr>
+    <td colspan="5">
+      <%= image_tag(game[:item0]) %>
+      <%= image_tag(game[:item1]) %>
+      <%= image_tag(game[:item2]) %>
+      <%= image_tag(game[:item3]) %>
+      <%= image_tag(game[:item4]) %>
+      <%= image_tag(game[:item5]) %>
+    </td>
+    <td><%= game[:crowdControl] %> Crowd Control </td>
+    <td><%= game[:totalHeal] %> total healed </td>
+  </tr>
+  <tr>
+    <td><%= game[:turretsKilled] %> Turret(s) Killed </td>
+    <td><%= game[:gold] %> </td>
+    <td>
+      <% if game[:win] == true %>
+        <%= image_tag('thumbup.jpg', height: '80', width: '100')  %>
+      <% else %>
+        <%= image_tag('thumbdown.jpg', height: '90', width: '100')  %>
+      <% end %>
+    </td>
+  </tr>
+<% end  %>
+</table>

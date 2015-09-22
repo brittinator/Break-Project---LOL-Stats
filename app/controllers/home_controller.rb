@@ -30,6 +30,7 @@ class HomeController < ApplicationController
   def summary
     @summary = ApiHelper.new.summoner_summary(params[:summoner_id])
     @recent = ApiHelper.new.recent(params[:summoner_id])
+    @recent_summary = ApiHelper.new.average_stats(@recent)
   end
 
   def parse_response(response)

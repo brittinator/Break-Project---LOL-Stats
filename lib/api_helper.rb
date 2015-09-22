@@ -62,9 +62,9 @@ class ApiHelper
 
       recent_game.push(recent)
     end
-
-    avg_stats = average_stats(recent_game)
-    recent_game.push(avg_stats)
+    #
+    # avg_stats = average_stats(recent_game)
+    # recent_game.push(avg_stats)
 
     return recent_game
   end

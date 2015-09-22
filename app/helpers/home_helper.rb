@@ -8,7 +8,7 @@ module HomeHelper
   end
 
   def did_you_win(win_field)
-    if win_field
+    if win_field == true
       image_tag('thumbup.jpg', height: '80', width: '100')
     else
       image_tag('thumbdown.jpg', height: '90', width: '100')
@@ -20,18 +20,8 @@ module HomeHelper
     scaled_down = (amount/1000)
     scaled_down = scaled_down.round
 
-    scaled_down.times do
-      gold_rows += image_tag('coin')
-    end
+    scaled_down.times { gold_rows += image_tag('coin.jpg', size: '42x64') }
+
+    return gold_rows.html_safe
   end
-
 end
-
-
-# def render_stars(rating)
-#     output = ''
-#     if (1..5).include?(rating)
-#       rating.times { output += image_tag('star.png') }
-#     end
-#     output.html_safe
-#   end

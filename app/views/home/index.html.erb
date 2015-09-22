@@ -1,9 +1,13 @@
-<h1>League of Legends Killuns</h1>
+<div class='index'>
+  <div class='input-section'>
+    <h1>League of Legends Killuns</h1>
 
-<p> Please enter your summoner name below. </p>
-<%= flash[:error]%>
+    <h3> Please enter summoner name below. </h3>
+    <%= flash[:error]%>
 
-<%= form_tag  %>
-<%= text_field_tag :summoner_name %>
+    <%= form_tag  %>
+    <%= text_field_tag :summoner_name %>
 
-<%= submit_tag 'Submit', class: 'btn btn-default' %>
+    <%= submit_tag 'Submit', class: 'btn btn-default' %>
+  </div>
+</div>

@@ -15,7 +15,6 @@ module HomeHelper
     end
   end
 
-
   def gold_display(amount)
     gold_rows = ''
     scaled_down = (amount/1000)
@@ -26,12 +25,3 @@ module HomeHelper
     return gold_rows.html_safe
   end
 end
-
-
-# def render_stars(rating)
-#     output = ''
-#     if (1..5).include?(rating)
-#       rating.times { output += image_tag('star.png') }
-#     end
-#     output.html_safe
-#   end

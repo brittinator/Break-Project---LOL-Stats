@@ -1,13 +1,13 @@
 <h1>Your Summary</h1>
 <div class='row'>
   <div class="col-md-6">
-    <h2>Average Over <%= @recent.count - 1 %> Games</h2>
-    <p> <%= winning_image(@recent[-1][:win]) %> Winning <%= @recent[-1][:win] %>% of the Time </p>
-    <p> <%= image_tag('skull', size: '63x64')%> <%= @recent[-1][:championskilled] %> Kills </p>
-    <p> <%= image_tag('coin', size: '42x64') %> Gold <%= @recent[-1][:gold] %> </p>
-    <p> <%= image_tag('x', size: '64x63')%>  <%= @recent[-1][:deaths] %> Deaths </p>
-    <p> <%= image_tag('handshake', size: '64x32') %> <%= @recent[-1][:assists] %> Assists </p>
-    <p> <%= image_tag('explosion', size: '64x58') %> <%= @recent[-1][:totalDamageDealtToChampions] %> Damage Dealt </p>
+    <h2>Average Over <%= @recent.count %> Games</h2>
+    <p> <%= winning_image(@recent_summary[:win]) %> Winning <%= @recent_summary[:win] %>% of the Time </p>
+    <p> <%= image_tag('skull', size: '63x64')%> <%= @recent_summary[:championskilled] %> Kills </p>
+    <p> <%= image_tag('coin', size: '42x64') %> Gold <%= @recent_summary[:gold] %> </p>
+    <p> <%= image_tag('x', size: '64x63')%>  <%= @recent_summary[:deaths] %> Deaths </p>
+    <p> <%= image_tag('handshake', size: '64x32') %> <%= @recent_summary[:assists] %> Assists </p>
+    <p> <%= image_tag('explosion', size: '64x58') %> <%= @recent_summary[:totalDamageDealtToChampions] %> Damage Dealt </p>
   </div>
   <div class="col-md-6">
     <h2>All Time Summary</h2>

@@ -16,14 +16,14 @@
       <p><%= game[:championskilled] %>/<%= game[:deaths] %>/<%= game[:assists] %> </p>
       <p>K/D/A</p>
     </td>
-    <td><%= game[:totalDamageDealtToChampions] %> Damage Dealt
-    <%= game[:killingsprees] %> Killing Sprees
-    <%= game[:largestMultiKill] %> Largest Multikill
-    <p><%= game[:crowdControl] %> Crowd Control  <%= game[:totalHeal] %> total healed </p>
+    <td>
+      <p><%= game[:totalDamageDealtToChampions] %> Damage Dealt </p>
+      <p><%= game[:killingsprees] %> Killing Spree(s) </p>
+      <p>Largest Multikill: <%= game[:largestMultiKill] %> </p>
+      <p><%= game[:crowdControl] %> Crowd Control </p>
+      <p><%= game[:totalHeal] %> Total Healed </p>
     </td>
-
-
-    <td colspan="5">
+    <td>
       <%= image_tag(game[:item0]) %>
       <%= image_tag(game[:item1]) %>
       <%= image_tag(game[:item2]) %>
@@ -32,7 +32,7 @@
       <%= image_tag(game[:item5]) %>
     </td>
 
-    <td colspan="3">
+    <td>
       <%= gold_display(game[:gold]) %>
       <%= game[:gold] %> Gold
     </td>

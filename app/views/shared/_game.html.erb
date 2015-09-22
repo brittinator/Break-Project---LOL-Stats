@@ -1,5 +1,5 @@
-<h2>Most Recent Ten Games Played </h2>
-<table class='table'>
+<h2>Most Recent Games Played </h2>
+<table class='table table-condensed'>
   <th> </th>
   <th> </th>
   <th> </th>
@@ -37,15 +37,12 @@
     <td><%= game[:totalHeal] %> total healed </td>
   </tr>
   <tr>
-    <td><%= game[:turretsKilled] %> Turret(s) Killed </td>
-    <td><%= game[:gold] %> </td>
-    <td>
-      <% if game[:win] == true %>
-        <%= image_tag('thumbup.jpg', height: '80', width: '100')  %>
-      <% else %>
-        <%= image_tag('thumbdown.jpg', height: '90', width: '100')  %>
-      <% end %>
+    <td colspan="3">
+      <%= gold_display(game[:gold]) %>
+      <%= game[:gold] %> Gold
     </td>
+    <td><%= game[:turretsKilled] %> Turret(s) Takedown </td>
+    <td> <%= did_you_win(game[:win]) %> </td>
   </tr>
 <% end  %>
 </table>

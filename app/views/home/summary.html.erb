@@ -1,7 +1,7 @@
 <h1>Your Summary</h1>
 <div class='row'>
   <div class="col-md-6">
-    <h2>Average Over Ten Games</h2>
+    <h2>Average Over <%= @recent.count - 1 %> Games</h2>
     <p> <%= winning_image(@recent[-1][:win]) %> Winning <%= @recent[-1][:win] %>% of the Time </p>
     <p> <%= image_tag('skull', size: '63x64')%> <%= @recent[-1][:championskilled] %> Kills </p>
     <p> <%= image_tag('coin', size: '42x64') %> Gold <%= @recent[-1][:gold] %> </p>

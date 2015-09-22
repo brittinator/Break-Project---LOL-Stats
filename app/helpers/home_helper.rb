@@ -24,4 +24,11 @@ module HomeHelper
 
     return gold_rows.html_safe
   end
+
+  def convert_playtime(time_in_sec)
+    min = (time_in_sec/60)
+    sec = time_in_sec.modulo(60)
+
+    return "#{min}:#{sec}"
+  end
 end

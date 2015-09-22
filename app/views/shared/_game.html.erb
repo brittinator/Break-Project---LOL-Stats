@@ -1,10 +1,12 @@
 <h2>Most Recent Games Played </h2>
-<table class='table table-condensed'>
+<table class='table table-striped'>
 
 <% recent.each do |game| %>
   <tr rowspan='3'>
-    <!-- updated_at.strftime("%m/%d/%Y") -->
-    <td><%= (game[:date]).strftime('%m/%d/%Y %l:%M %p') %> </td>
+    <td>
+      <p><%= (game[:date]).strftime('%m/%d/%Y %l:%M %p') %></p>
+      <p>Game Length: <%= convert_playtime(game[:timePlayed]) %></p>
+    </td>
     <td><%= game[:gameMode] %> </td>
     <td>
       <p><%= image_tag(game[:champion_image]) %> </p>
@@ -19,8 +21,8 @@
     <%= game[:largestMultiKill] %> Largest Multikill
     <p><%= game[:crowdControl] %> Crowd Control  <%= game[:totalHeal] %> total healed </p>
     </td>
-  </tr>
-  <tr>
+
+
     <td colspan="5">
       <%= image_tag(game[:item0]) %>
       <%= image_tag(game[:item1]) %>
@@ -29,8 +31,7 @@
       <%= image_tag(game[:item4]) %>
       <%= image_tag(game[:item5]) %>
     </td>
-  </tr>
-  <tr>
+
     <td colspan="3">
       <%= gold_display(game[:gold]) %>
       <%= game[:gold] %> Gold

@@ -4,7 +4,7 @@
 <% recent.each do |game| %>
   <tr rowspan='3'>
     <!-- updated_at.strftime("%m/%d/%Y") -->
-    <td><%= (game[:date]).strftime('%m/%d/%Y') %> </td>
+    <td><%= (game[:date]).strftime('%m/%d/%Y %l:%M %p') %> </td>
     <td><%= game[:gameMode] %> </td>
     <td>
       <p><%= image_tag(game[:champion_image]) %> </p>

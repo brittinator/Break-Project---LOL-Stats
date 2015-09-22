@@ -38,6 +38,7 @@ class ApiHelper
 
       recent[:dummy] = 'dummy data', # this is so the data is returned nicely
       recent[:date] = Time.at(game["createDate"]/1000),
+      recent[:timePlayed] = game['stats']['timePlayed'],
       recent[:champion] = champ.name,
       recent[:champion_image] = 'http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/' + champ.image,
       recent[:type] = champ.tags,

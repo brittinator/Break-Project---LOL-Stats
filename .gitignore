@@ -22,3 +22,5 @@ coverage
 
 # Ignore all VCR cassettes
 /spec/support/vcr_cassettes
+
+/public/assets

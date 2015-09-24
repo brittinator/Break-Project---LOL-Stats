@@ -40,7 +40,9 @@ class HomeController < ApplicationController
     icon = PROFILE_ICON + response.first[1]["profileIconId"].to_s + '.png'
 
     return {screen_name: screen_name, id: id, level: level, icon: icon}
-
   end
 
+  def about
+    # legal statement
+  end
 end

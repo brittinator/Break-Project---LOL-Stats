@@ -1,9 +1,9 @@
 module HomeHelper
   def winning_image(wins)
     if wins > 50
-      image_tag('happy', size: '64x46')
+      image_tag('happy.png', size: '64x46')
     else
-      image_tag('sad', size: '64x64')
+      image_tag('sad.png', size: '64x64')
     end
   end
 

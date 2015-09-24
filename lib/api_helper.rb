@@ -63,9 +63,6 @@ class ApiHelper
 
       recent_game.push(recent)
     end
-    #
-    # avg_stats = average_stats(recent_game)
-    # recent_game.push(avg_stats)
 
     return recent_game
   end
@@ -112,7 +109,6 @@ class ApiHelper
     averages[:totalDamageDealtToChampions] = totalDamageDealtToChampions/length
 
     return averages
-
   end
 
 end

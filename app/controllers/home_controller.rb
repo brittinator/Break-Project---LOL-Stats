@@ -43,9 +43,4 @@ class HomeController < ApplicationController
 
   end
 
-  def champions
-    @champions = ApiHelper.new.get_champions
-  end
-
-
 end

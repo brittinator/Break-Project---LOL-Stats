@@ -2,7 +2,7 @@ Site: https://lolkilluns.herokuapp.com
 
 # Break-Project---League of Legends (LOL) Killuns
 
-This project aims to serve players of Riot's League of Legends game with real-time data on their latest 10 games played, as well as overall info since the player has begun.
+This project aims to serve players of Riot's League of Legends game with real-time data on their latest 10 games played. 
 
 - What is the goal of the project?
   * Play with a game API (League Of Legends, or LOL) while also dealing with stats.
